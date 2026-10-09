@@ -1,0 +1,2 @@
+# Uses boto3 supplied by the AWS Python 3.12 Lambda runtime.
+# No third-party application dependencies.
