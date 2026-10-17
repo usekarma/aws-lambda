@@ -18,7 +18,9 @@ commit = subprocess.check_output(
 if len(args.model_commit) != 40 or commit != args.model_commit:
     parser.error("supply an exact full reviewed commit SHA")
 root = Path(__file__).resolve().parents[1]
-files = {p.name: p.read_bytes() for p in (root / "iot-interview-demo").glob("*.py")}
+files = {
+    p.name: p.read_bytes() for p in (root / "iot-digital-twin-simulator").glob("*.py")
+}
 for name in (
     "__init__.py",
     "adapters.py",
@@ -40,7 +42,7 @@ files["model-provenance.json"] = json.dumps(
     },
     sort_keys=True,
 ).encode()
-output = root / "dist/iot-interview-demo.zip"
+output = root / "dist/iot-digital-twin-simulator.zip"
 output.parent.mkdir(exist_ok=True)
 with ZipFile(output, "w", compression=ZIP_DEFLATED, compresslevel=9) as archive:
     for name, data in sorted(files.items()):

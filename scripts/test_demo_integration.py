@@ -8,7 +8,9 @@ import time
 import uuid
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "iot-interview-demo"))
+sys.path.insert(
+    0, str(Path(__file__).resolve().parents[1] / "iot-digital-twin-simulator")
+)
 
 
 def main():

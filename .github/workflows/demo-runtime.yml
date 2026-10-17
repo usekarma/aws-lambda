@@ -15,7 +15,7 @@ jobs:
         with:
           python-version: '3.12'
       - id: model
-        run: echo "commit=$(cat iot-interview-demo/model-commit.txt)" >> "$GITHUB_OUTPUT"
+        run: echo "commit=$(cat iot-digital-twin-simulator/model-commit.txt)" >> "$GITHUB_OUTPUT"
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
         with:
           repository: usekarma/iot-digital-twin
@@ -24,9 +24,9 @@ jobs:
           persist-credentials: false
       - run: python -m pip install -r requirements-dev.txt
       - run: make test lint test-demo package-demo MODEL_REPO=model-source RUFF=ruff
-      - run: PYTHONPATH=dist/iot-interview-demo.zip python -m unittest discover -s iot-interview-demo/tests -v
+      - run: PYTHONPATH=dist/iot-digital-twin-simulator.zip python -m unittest discover -s iot-digital-twin-simulator/tests -v
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
-          name: demo-runtime-${{ github.sha }}
-          path: dist/iot-interview-demo.zip
+          name: iot-digital-twin-simulator-${{ github.sha }}
+          path: dist/iot-digital-twin-simulator.zip
           retention-days: 14

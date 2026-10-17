@@ -1,4 +1,4 @@
-# Executable durable interview-demo runtime
+# iot-digital-twin-simulator runtime
 
 Consumes the existing simulator/traces rather than copying their rules. DynamoStore
 uses strongly consistent reads, revision/epoch/fence conditions, atomic reset + receipt
@@ -44,3 +44,8 @@ Integration guard without execution flag exited 2 before SDK import or AWS calls
 No real DynamoDB/IoT test was executed. The companion aws-iac component provides
 review-only concrete table/Lambda/IAM/rule wiring; aws-config declaration and resolved
 artifact/principal/account/session bindings remain prerequisites for an approved plan.
+
+Naming revision: deployment component and ZIP basename are iot-digital-twin-simulator.
+Project is iot-digital-twin; Experiment is atom-lite-simulator. Runtime calculations,
+state/reset/ACK contracts and packaged ZIP bytes are unchanged. Rechecked all 26
+source tests, nine ZIP tests, Ruff and Bandit after renaming; no AWS calls were made.
